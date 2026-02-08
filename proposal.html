@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message For You ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .page {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        .content {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.05); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .proposal-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            position: relative;
+            height: 80px;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 15px 50px;
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 15px 50px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .question {
+            font-size: 2em;
+            color: #f5576c;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .final-message {
+            font-size: 2.5em;
+            color: #f5576c;
+            margin-bottom: 30px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .photo-container {
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty));
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            animation: floatHeart 3s ease-in forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .emoji {
+            display: inline-block;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .message {
+                font-size: 1em;
+            }
+            
+            .question {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Initial Message -->
+    <div class="page active" id="page1">
+        <div class="content">
+            <h1>💌 You Have A Special Message 💌</h1>
+            <p class="message" style="text-align: center; font-size: 1.3em;">
+                Someone special has something important to tell you...
+            </p>
+            <button class="button" onclick="goToPage(2)">Read Message ❤️</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Love Letter -->
+    <div class="page" id="page2">
+        <div class="content">
+            <h1>My Dearest Love 💕</h1>
+            <p class="message">
+                From the moment we met, you came in my life I feel butterflies, whenever I see you I get butterflies. You aren't just the person I love; you're the person who makes me want to be the best version of myself. Yes yes you have already made me a better version only few few things are left, which will gone when we'll be together.
+                <br><br>
+                I've realized that we have gone through many ups and down, many fights but at the end it's Us, We are together, which I believe is most important, Now It's time to Make this Us to Forever after, I want to wake up next to you every morning and navigate the rest of our lives with holding hands.
+            </p>
+            <p class="question">Will you marry me? 💍</p>
+            <div class="proposal-buttons">
+                <button class="button" id="yesBtn" onclick="goToPage(3)">Yes! 💕</button>
+                <button class="button" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Celebration -->
+    <div class="page" id="page3">
+        <div class="content">
+            <h1 class="final-message">It's a Yes! 🎉</h1>
+            <div class="photo-container">
+                <img src="https://drive.google.com/file/d/161yi3H7YsoVCZcrHJy893A_A00bShwNC/view?usp=sharing" alt="Our Special Moment">
+            </div>
+            <h1 style="margin-top: 30px;">I love you The Most Bchha 💕</h1>
+            <p class="message" style="text-align: center; font-size: 1.3em; margin-top: 20px;">
+                Forever and always, together ❤️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+            
+            if (pageNum === 3) {
+                celebrate();
+                createHearts();
+            }
+        }
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - 200;
+            const maxY = window.innerHeight - 100;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function celebrate() {
+            // Create fireworks effect
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createFirework();
+                }, i * 100);
+            }
+            
+            // Continue creating fireworks
+            setInterval(() => {
+                createFirework();
+            }, 500);
+        }
+
+        function createFirework() {
+            const colors = ['#ff0844', '#ffb199', '#f8e71c', '#50e3c2', '#4a90e2', '#bd10e0'];
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            for (let i = 0; i < 30; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = x + 'px';
+                firework.style.top = y + 'px';
+                firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                const angle = (Math.PI * 2 * i) / 30;
+                const velocity = 50 + Math.random() * 100;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                firework.style.setProperty('--tx', tx + 'px');
+                firework.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(firework);
+                
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000);
+            }
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = window.innerHeight + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }, 300);
+        }
+
+        // Add some floating hearts on page 2
+        setInterval(() => {
+            const currentPage = document.querySelector('.page.active');
+            if (currentPage && currentPage.id === 'page2') {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💕';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = window.innerHeight + 'px';
+                heart.style.fontSize = '20px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+        }, 800);
+    </script>
+</body>
+</html>
